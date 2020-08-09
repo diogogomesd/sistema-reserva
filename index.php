@@ -38,6 +38,7 @@ $carros = new Carros($pdo);
 if(empty($_GET['ano'])){
   exit;
 }
+//pega as informações na url e transfere para a classe de reservas
 $data = $_GET['ano'].'-'.$_GET['mes'];
 $dia1 = date('w', strtotime($data));
 $dias = date('t', strtotime($data));

@@ -48,6 +48,7 @@ if(!empty($_POST['carro'])){
         Carro:</br>
         <select name="carro">
             <?php
+                //busca na classe carros e mostra no formulario
                 $lista = $carros->getCarro();
                
                 foreach($lista as $carro):

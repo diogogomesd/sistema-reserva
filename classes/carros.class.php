@@ -1,10 +1,14 @@
 <?php
 class Carros{
-
+    //varaiavel que armazena a conexao a o bd
     private $pdo;
-    public function __construct($pdo){
+
+    //função construtora
+    public function __construct($pdo){     
         $this->pdo = $pdo;
     }
+
+    //função que retorna a lista da tabela carros
     public function getCarro(){
         $array = array();
         $sql = "SELECT * FROM carros";

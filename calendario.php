@@ -1,11 +1,11 @@
 <?php
-$data = $_GET['ano'].'-'.$_GET['mes'];
-$dia1 = date('w', strtotime($data));
-$dias = date('t', strtotime($data));
-$linhas = ceil(($dia1 + $dias)/7);
-$dia1 = -$dia1;
-$data_inicio = date('Y-m-d', strtotime($dia1.' days', strtotime($data)));
-$data_fim = date('Y-m-d', strtotime((($dia1 + ($linhas*7)-1)).' days', strtotime($data)));
+$data = $_GET['ano'].'-'.$_GET['mes'];//pega ano e mes na url enviada do arquivo index.php
+$dia1 = date('w', strtotime($data));//retorna o dia da semana
+$dias = date('t', strtotime($data));//retorna o dia do mes
+$linhas = ceil(($dia1 + $dias)/7);//faz contagem dos dias da semana e retorna o tanto de semana no mes
+$dia1 = -$dia1;//retira o os dias da semana que não pertence aquele mes
+$data_inicio = date('Y-m-d', strtotime($dia1.' days', strtotime($data)));//diz o tanto de dias no mes
+$data_fim = date('Y-m-d', strtotime((($dia1 + ($linhas*7)-1)).' days', strtotime($data)));//diz os dias na semana no final que nao pertence ao mes no final
 
 ?>
 <!DOCTYPE html>
@@ -26,7 +26,11 @@ $data_fim = date('Y-m-d', strtotime((($dia1 + ($linhas*7)-1)).' days', strtotime
             <th>SEX</th>
             <th>SAB</th>
         </tr>
-        <?php for($l=0; $l<$linhas; $l++):?>
+        
+        <?php 
+
+        //faz a listagem dos dados dentro do calendario
+        for($l=0; $l<$linhas; $l++):?>
             <tr>
                 <?php for($q=0; $q<7; $q++):?>
                 <?php
